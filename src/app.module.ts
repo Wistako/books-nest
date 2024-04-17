@@ -7,9 +7,10 @@ import {
 import { AppController } from './app.controller';
 import * as cors from 'cors';
 import { AppService } from './app.service';
+import { AuthorsModule } from './authors/authors.module';
 
 @Module({
-  imports: [],
+  imports: [AuthorsModule],
   controllers: [AppController],
   providers: [AppService],
 })

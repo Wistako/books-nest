@@ -23,6 +23,7 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@prisma/client": "^5.12.1",
     "@types/cors": "^2.8.17",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
@@ -30,7 +31,8 @@
     "mysql2": "^3.9.5",
     "prisma": "^5.12.1",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
@@ -71,6 +73,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "main": "index.js",
   "repository": "git@github.com:Wistako/books-nest.git"
