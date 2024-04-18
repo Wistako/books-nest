@@ -12,6 +12,7 @@ import {
 import { AuthorsService } from './authors.service';
 import { Author } from '@prisma/client';
 import { CreateAuthorDTO } from './dto/create-author.dto';
+import { UpdateAuthorDTO } from './dto/update-author.dtio';
 
 @Controller('authors')
 export class AuthorsController {
@@ -37,7 +38,7 @@ export class AuthorsController {
   @Put('/:id')
   updateById(
     @Param('id', new ParseUUIDPipe()) id: Author['id'],
-    @Body() data: CreateAuthorDTO,
+    @Body() data: UpdateAuthorDTO,
   ) {
     return this.authorsService.updateById(id, data);
   }
