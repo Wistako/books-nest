@@ -9,6 +9,7 @@ import {
 import { LocalAuthGuard } from './local-auth.guard';
 import { AuthService } from './auth.service';
 import { RegisterDTO } from './dto/RegisterDTO.dto';
+import { JwtAuthGuard } from './jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -28,5 +29,14 @@ export class AuthController {
       message: 'success',
     });
     return req.user;
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('logout')
+  async logout(@Response() res) {
+    res.clearCookie('auth', { httpOnly: true }); // httpOnly: true is important to prevent XSS attacks on the client side in js tak by client nie mogl odczytac ciasteczka
+    res.send({
+      message: 'success',
+    });
   }
 }
